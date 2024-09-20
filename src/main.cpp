@@ -33,4 +33,5 @@ void vehicle_passed(){
 
 void init_pins(){
   //functie init_pins() initialiseert de pinnen juist
+  DDRC = 00001111;
 }
