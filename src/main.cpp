@@ -6,6 +6,9 @@
 //gebruik juiste datatypes!!!
 // Duidelijke en voldoende hoeveelheid Comments toevoegen!!!!
 
+
+#define DEBOUNCE_DELAY 50 // Debounce-tijd in ms
+
 void display_counter();
 void button_state();
 void vehicle_passed();
@@ -26,8 +29,22 @@ void display_counter(){
   PORTC = 0x0F;
 }
 
-void button_state(){
-  //functie button_state() waarin debouncing wordt gedaan
+void button_state(uint8_t currentButtonState) {
+  static unsigned long lastDebounceTime = 0;
+  static uint8_t buttonState = 1; // 1 staat voor knop losgelaten
+
+  // Debounce 
+  if (currentButtonState != buttonState) {
+    if ((millis() - lastDebounceTime) > DEBOUNCE_DELAY) { 
+      buttonState = currentButtonState;
+
+      // Doe iets wanneer de knop wordt losgelaten.
+      if (buttonState == 1) {
+        // hier de code om ledjes te gaan veranderen!!!
+      }
+    }
+  }
+  lastDebounceTime = millis();
 }
 
 bool vehicle_passed(void){
