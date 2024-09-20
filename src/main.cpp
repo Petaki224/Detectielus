@@ -24,9 +24,9 @@ int main(void){
 }
 
 
-void display_counter(){
+void display_counter(uint8_t counter){
   //functie display_counter() met juiste oneliner om aantal gepasseerde voertuigen weer te geven.
-  PORTC = 0x0F;
+  PORTC = counter;
 }
 
 void button_state(uint8_t currentButtonState) {
