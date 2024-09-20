@@ -15,6 +15,7 @@ void init_pins();
 int main(void){
   //main() conform ontwerp
   init_pins();
+  display_counter();
 
   return 0;
 }
@@ -22,6 +23,7 @@ int main(void){
 
 void display_counter(){
   //functie display_counter() met juiste oneliner om aantal gepasseerde voertuigen weer te geven.
+  PORTC = 00001111;
 }
 
 void button_state(){
