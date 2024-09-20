@@ -14,6 +14,7 @@ void init_pins();
 
 int main(void){
   //main() conform ontwerp
+  init_pins();
 
   return 0;
 }
