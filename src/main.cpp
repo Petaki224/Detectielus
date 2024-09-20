@@ -9,7 +9,7 @@
 
 #define DEBOUNCE_DELAY 50 // Debounce-tijd in ms
 
-void display_counter();
+void display_counter(uint8_t counter);
 void button_state();
 void vehicle_passed();
 void init_pins();
@@ -18,8 +18,7 @@ void init_pins();
 int main(void){
   //main() conform ontwerp
   init_pins();
-  display_counter();
-
+  display_counter(10);
   return 0;
 }
 
