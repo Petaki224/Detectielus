@@ -37,4 +37,6 @@ void vehicle_passed(){
 void init_pins(){
   //functie init_pins() initialiseert de pinnen juist
   DDRC = 0x0F;
+  DDRD = (0 << PD2);
+  PORTD =  PORTD |= (1 << PORTD2);
 }
