@@ -6,6 +6,12 @@
 //gebruik juiste datatypes!!!
 // Duidelijke en voldoende hoeveelheid Comments toevoegen!!!!
 
+void display_counter();
+void button_state();
+void vehicle_passed();
+void init_pins();
+
+
 int main(void){
   //main() conform ontwerp
 
