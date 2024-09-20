@@ -34,9 +34,10 @@ void vehicle_passed(){
   //functie vehicle_passed() geeft de juiste boolean waarde
 }
 
+// Initialiseert alle pinnen op arduino
 void init_pins(){
-  //functie init_pins() initialiseert de pinnen juist
-  DDRC = 0x0F;
-  DDRD = (0 << PD2);
-  PORTD =  PORTD |= (1 << PORTD2);
+  DDRC = 0x0F;             // Stel de eerste vier pinnen van Port C in als output
+  DDRD &= ~(1 << PD2);     // Stel Pin D2 in als input
+  PORTD |= (1 << PORTD2);  // Zet de interne pull-up weerstand van Pin D2 aan
+
 }
