@@ -11,7 +11,7 @@
 
 void display_counter(uint8_t counter);
 void button_state();
-void vehicle_passed();
+bool vehicle_passed(void);
 void init_pins();
 
 
