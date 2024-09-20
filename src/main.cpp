@@ -30,8 +30,9 @@ void button_state(){
   //functie button_state() waarin debouncing wordt gedaan
 }
 
-void vehicle_passed(){
+bool vehicle_passed(void){
   //functie vehicle_passed() geeft de juiste boolean waarde
+  return false;
 }
 
 // Initialiseert alle pinnen op arduino
