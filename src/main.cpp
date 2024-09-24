@@ -19,8 +19,9 @@ int main(void) {
   
   // Start de seriële communicatie
   Serial.begin(9600);  
-
-  while (1) {
+  sei();
+  Serial.println("begin");
+  while (true) {
     // Check of auto is langsgereden/knop losgelaten
     if (vehicle_passed()) {
       counter++;  //verhoogt de teller
@@ -42,10 +43,11 @@ void display_counter(uint8_t counter) {
 // debounce en laat status van leds zien.
 enum bstate button_state(void) {
   static enum bstate currentState = released;
+  // unsigned long currentTime = millis();
   
   //debounce logica
-  delay(DEBOUNCE_DELAY);
     if (!(PIND & (1 << PD2))) {  // Controleert of de knop ingedrukt (0) is
+      _delay_ms(DEBOUNCE_DELAY);
       currentState = pressed; 
     } else {
       currentState = released;
