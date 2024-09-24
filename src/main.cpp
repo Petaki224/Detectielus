@@ -3,6 +3,7 @@
 #define DEBOUNCE_DELAY 50 //debounce tijd in ms
 unsigned long previousTime = 0;
 uint8_t counter = 0;  //teller voor voertuigen
+uint8_t maxAmountCars = 15;
 
 enum bstate { pressed, released };
 enum bstate lastState = released;  //houdt de laatste status bij
@@ -23,7 +24,7 @@ int main(void) {
     // Check of auto is langsgereden/knop losgelaten
     if (vehicle_passed()) {
       counter++;  //verhoogt de teller
-      if (counter > 15) {  // reset naar 0 bij overflow
+      if (counter > maxAmountCars) {  // reset naar 0 bij overflow
         counter = 0;
       }
       display_counter(counter);  // laat de teller binair zien op ledjes
