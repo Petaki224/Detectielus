@@ -42,17 +42,14 @@ void display_counter(uint8_t counter) {
 // debounce en laat status van leds zien.
 enum bstate button_state(void) {
   static enum bstate currentState = released;
-  unsigned long currentTime = millis();
   
   //debounce logica
-  if (currentTime - previousTime >= DEBOUNCE_DELAY) {
+  delay(DEBOUNCE_DELAY);
     if (!(PIND & (1 << PD2))) {  // Controleert of de knop ingedrukt (0) is
       currentState = pressed; 
     } else {
       currentState = released;
     }
-    previousTime = currentTime;
-  }
   return currentState;
 }
 
